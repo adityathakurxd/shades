@@ -1,6 +1,6 @@
-![Add a heading](https://user-images.githubusercontent.com/53579386/107047442-d3028580-67ed-11eb-9e77-f360dc352e12.png)
+![SHADES logo](https://user-images.githubusercontent.com/53579386/107047442-d3028580-67ed-11eb-9e77-f360dc352e12.png)
 
-# SHADES - The Skin Pigment analysis app for Electrothon
+# SHADES - The Skin Pigment analysis app
 
 ## Problem-Statement:
 
@@ -22,6 +22,7 @@ One of the **example** to demonstrate this is: Usually, Typhoid can cause a rash
 **Members:**
 
  - Aditya Thakur (Team Leader, Flutter Developer)
+ - Vishnupriya Arora (AI/ML Student)
 
 # Hack Progress
 We broke up the problem statement into task and tried to focus on one at a time namely:
@@ -48,6 +49,8 @@ Cases include a representative collection of all important diagnostic categories
  -  benign keratosis-like lesions (solar lentigines / seborrheic keratoses and lichen-planus like keratoses, bkl)
 
 **Citation**
+
+The [International Skin Imaging Collaboration (ISIC)](https://isdis.net/isic-project) is an international effort to improve melanoma diagnosis, sponsored by the International Society for Digital Imaging of the Skin (ISDIS). [The ISIC Archive](https://isic-archive.com/) contains the largest publicly available collection of quality controlled dermoscopic images of skin lesions.
 
 [1] Noel Codella, Veronica Rotemberg, Philipp Tschandl, M. Emre Celebi, Stephen Dusza, David Gutman, Brian Helba, Aadi Kalloo, Konstantinos Liopyris, Michael Marchetti, Harald Kittler, Allan Halpern: “Skin Lesion Analysis Toward Melanoma Detection 2018: A Challenge Hosted by the International Skin Imaging Collaboration (ISIC)”, 2018; https://arxiv.org/abs/1902.03368
 
@@ -87,3 +90,25 @@ Next, we split the data into two sets to train and test the model respectively!
 # Modeling
 A 2-D convolutional neural network is used to extract features from the images while we train. 
 
+**References**: [https://youtu.be/Pndpe80vaEA](https://youtu.be/Pndpe80vaEA)
+
+# How to get it to our Users?
+Now, everbody can't run a machine learning model as such. So, to get it to our users we needed to tap into the increased mobile penetration by smartphones.
+
+We decided to go with mobile app because it help us access features like camera on devices, is handy for diagnosis and with **Flutter** we can target both Android, iOS, and even Web with the same codebase if we need to scale up.
+
+## App Development
+
+**Taking the model to mobile!** 
+The TensorFlow model we prepared needed to be taken to the mobile devices, hence we had to convert it to TensorFlow Lite.
+
+**TensorFlow Lite** is an open source deep learning framework for on-device inference.
+
+**Flutter App progress**
+
+![WhatsApp Image 2021-02-06 at 12 31 01 PM](https://user-images.githubusercontent.com/53579386/107112720-b020b180-687f-11eb-8f96-63b7fc9078a6.jpeg)
+
+**Whats next?** 
+
+ - Updating UI
+ - Adding info about labels
