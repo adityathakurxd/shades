@@ -1,4 +1,4 @@
-![SHADES logo](https://user-images.githubusercontent.com/53579386/107047442-d3028580-67ed-11eb-9e77-f360dc352e12.png)
+![Add a heading](https://user-images.githubusercontent.com/53579386/107047442-d3028580-67ed-11eb-9e77-f360dc352e12.png)
 
 # SHADES - The Skin Pigment analysis app for Electrothon
 
@@ -18,6 +18,7 @@ One of the **example** to demonstrate this is: Usually, Typhoid can cause a rash
 
 ## Team Details 
 **Team Name:** ErrorHack
+
 **Members:**
 
  - Aditya Thakur (Team Leader, Flutter Developer)
@@ -53,17 +54,37 @@ Cases include a representative collection of all important diagnostic categories
 
 [2] Tschandl, P., Rosendahl, C. & Kittler, H. The HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions.  _Sci. Data_ **5**, 180161 doi:10.1038/sdata.2018.161 (2018).
 
+## Task 2 - Training and Testing the model
 
+## Preprocessing
+Data Preprocessing is that step in which the data gets transformed, or _Encoded_, to bring it to such a state that now the machine can easily parse it. In other words, the _features_ of the data can now be easily interpreted by the algorithm.
 
-## Getting Started
+There are 7 possible labels from the dataset provider:
 
-This project is a starting point for a Flutter application.
+-   0: nv - Melanocytic nevi
+-   1: mel - Melanoma
+-   2: bkl - Benign keratosis-like lesions
+-   3: bcc - Basal cell carcinoma
+-   4: akiec - Actinic keratoses and intraepithelial carcinoma / Bowen's disease
+-   5: vasc - Vascular lesions
+-   6: df - Dermatofibroma
 
-A few resources to get you started if this is your first Flutter project:
+**Subtasks:**
+Eliminate rows with missing data as estimating missing values would've been difficult.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+# Rescaling and Reshaping
+Bigger images meant more computation operations per layer as well as more memory requirements there we rescaled image pixel values to be between 0 and 1.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Each image originally was represented by a vector of length 784.
+We wanted images of size 28x28, so reshaped each vector into a 2-D array of the proper size.
+
+# Visualizing
+
+![shades_SkinPigmentNotebook ipynb at main · adityathakurxd_shades - Google Chrome 2_6_2021 1_03_59 PM (2)](https://user-images.githubusercontent.com/53579386/107112220-f70ca800-687b-11eb-8fd1-71a95a48baf6.png)
+
+# Train-Test Split
+Next, we split the data into two sets to train and test the model respectively!
+
+# Modeling
+A 2-D convolutional neural network is used to extract features from the images while we train. 
+
