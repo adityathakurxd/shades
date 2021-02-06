@@ -4,8 +4,6 @@
 
 ## Problem-Statement
 
-IEEE Mandi (Go Online)
-
 As we all know that the world is permanently moving in online mode by all possible ways and after the end of this pandemic people will prefer **'Go online'** in every walk of life but this new era comes with many problems which need to be solved.
 
 In the upcoming scenario of **'the new normal'**, everything is about to get digitalized. We would like you to propose a solution for the medical industry to promote touchless diagnosis.
