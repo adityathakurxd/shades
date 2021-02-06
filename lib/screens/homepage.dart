@@ -131,6 +131,18 @@ class _HomePageState extends State<HomePage> {
                       TileMode.clamp, // repeats the gradient over the canvas
                 ),
               ),
+
+              child: Center(
+                child: Text(
+                  "S\n\nH\n\nA\n\nD\n\nE\n\nS",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30.0,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
             AnimatedContainer(
               transform: Matrix4.translationValues(x, y, 0)..scale(scaleFactor),
@@ -536,6 +548,9 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                       ),
+                    ),
+                    SizedBox(
+                      height: 40.0,
                     ),
                   ],
                 ),
