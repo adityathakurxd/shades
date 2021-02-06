@@ -1,10 +1,10 @@
 ![Add a heading](https://user-images.githubusercontent.com/53579386/107047442-d3028580-67ed-11eb-9e77-f360dc352e12.png)
 
-# SHADES - The Skin Pigment analysis app for Electrothon
+# SHADES - The Skin Pigment analysis app
 
-## Organizational-Problem-Statement:
+## Problem-Statement
 
-[IEEE Mandi (Go Online)](https://www.notion.so/Organizational-Problem-Statements-ac0bd0cea6a44920ab845dc8f72379b1#ec0c8cacba5846faa9323feecdcd9959)
+IEEE Mandi (Go Online)
 
 As we all know that the world is permanently moving in online mode by all possible ways and after the end of this pandemic people will prefer **'Go online'** in every walk of life but this new era comes with many problems which need to be solved.
 
