@@ -22,7 +22,6 @@ One of the **example** to demonstrate this is: Usually, Typhoid can cause a rash
 **Members:**
 
  - Aditya Thakur (Team Leader, Flutter Developer)
- - Vishnupriya Arora (AI/ML Student)
 
 # Hack Progress
 We broke up the problem statement into task and tried to focus on one at a time namely:
