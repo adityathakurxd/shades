@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/percent_indicator.dart';
+import 'package:shades/constants.dart';
 import 'dart:io';
 
 class ResultScreen extends StatelessWidget {
@@ -29,10 +31,17 @@ class ResultScreen extends StatelessWidget {
                   )
               ),
             ),
+
+            CircularPercentIndicator(
+              radius: 60.0,
+              lineWidth: 5.0,
+              percent: _result[0]['confidence'] ,
+              center: new Text('${_label}'),
+              progressColor: skin2,
+            ),
             SizedBox(
               height: 20.0,
             ),
-            Center(child: Text("Label: ${_label} \n Confidence: $_confidence")),
           ],
         ),
       ),
