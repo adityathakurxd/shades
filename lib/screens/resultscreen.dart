@@ -3,6 +3,7 @@ import 'package:percent_indicator/percent_indicator.dart';
 import 'package:shades/constants.dart';
 import 'dart:io';
 import 'homepage.dart';
+import 'package:shades/diseasecure.dart';
 
 class ResultScreen extends StatelessWidget {
 
@@ -28,7 +29,11 @@ class ResultScreen extends StatelessWidget {
 
   var _result;
   String str;
-  String _label ;
+  String _label;
+  DiseaseCure dc = DiseaseCure();
+
+
+
   String _confidence;
   File image;
 
@@ -46,24 +51,16 @@ class ResultScreen extends StatelessWidget {
             ),
             Center(
               child: Container(
-                height: 350,
+                height: 300,
                 width: MediaQuery.of(context).size.width*0.80,
+
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image: FileImage(File(image.path)),
-                        fit: BoxFit.contain,),
-                  borderRadius: BorderRadius.all(Radius.circular(24)),
-                  gradient: LinearGradient(
-                      colors: [skin2,skin3],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight),
-                  boxShadow: [
-                    BoxShadow(
-                      color: skin3,
-                      blurRadius: 6,
-                      offset: Offset(0, 5),
-                    ),
-                  ],
+                        fit: BoxFit.fill,),
+                    borderRadius:
+                    BorderRadius.all(Radius.circular(20.0)),
+                    border: Border.all(color: Colors.black)
                 ),
                 ),
               ),
@@ -72,16 +69,33 @@ class ResultScreen extends StatelessWidget {
               height: 40.0,
             ),
 
-            CircularPercentIndicator(
-              circularStrokeCap: CircularStrokeCap.round,
-              radius: 120.0,
-              lineWidth: 12.0,
-              percent: _result[0]['confidence'] ,
-              center: new Text('${_label}'),
-              progressColor: skin2,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CircularPercentIndicator(
+                  circularStrokeCap: CircularStrokeCap.round,
+                  radius: 120.0,
+                  lineWidth: 12.0,
+                  percent: _result[0]['confidence'] ,
+                  center: new Text('${_confidence}',
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold,
+                  ),),
+                  progressColor: Colors.black,
+                ),
+                Text('${dc.getDiseaseName(_label)}',
+                style: TextStyle(
+                  fontSize: 25.0,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.bold,
+                ),),
+              ],
             ),
+
             SizedBox(
-              height: 20.0,
+              height: 30.0,
             ),
 
             Container(
@@ -90,7 +104,7 @@ class ResultScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(24)),
                 gradient: LinearGradient(
-                    colors: [skin2,skin3],
+                    colors: [skin1,skin2],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight),
                 boxShadow: [
@@ -103,8 +117,28 @@ class ResultScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Text(
-                    items[0].name
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Center(
+                    child: Text(
+                      items[dc.getDiseaseIndex(_label)].name,
+                      style: TextStyle(
+                        fontSize: 25.0,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      items[dc.getDiseaseIndex(_label)].description,
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        fontFamily: 'Montserrat',
+                      ),
+                    ),
                   )
                 ],
               ),
@@ -115,3 +149,5 @@ class ResultScreen extends StatelessWidget {
     );
   }
 }
+
+

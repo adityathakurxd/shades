@@ -2,3 +2,6 @@
 1 mel
 2 bkl
 3 df
+4 bcc
+5 akiec
+6 nv

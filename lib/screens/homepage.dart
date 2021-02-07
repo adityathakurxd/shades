@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:ui' as ui;
 import 'package:shades/constants.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shades/screens/infoscreen.dart';
 import 'package:shades/screens/resultscreen.dart';
 import 'package:tflite/tflite.dart';
 
@@ -145,6 +146,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             AnimatedContainer(
+              height: MediaQuery.of(context).size.height,
               transform: Matrix4.translationValues(x, y, 0)..scale(scaleFactor),
               duration: Duration(milliseconds: 250),
               color: Colors.white,
@@ -154,26 +156,39 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: IconButton(
-                        icon: Icon(
-                          isdraweropen ? Icons.close : Icons.menu,
-                          size: 40.0,
-                        ),
-                        onPressed: () {
-                          isdraweropen
-                              ? setState(() {
-                                  x = 0;
-                                  y = 0;
-                                  scaleFactor = 1;
-                                  isdraweropen = false;
-                                })
-                              : setState(() {
-                                  x = 230;
-                                  y = 150;
-                                  scaleFactor = 0.6;
-                                  isdraweropen = true;
-                                });
-                        },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            icon: Icon(
+                              isdraweropen ? Icons.close : Icons.menu,
+                              size: 40.0,
+                            ),
+                            onPressed: () {
+                              isdraweropen
+                                  ? setState(() {
+                                      x = 0;
+                                      y = 0;
+                                      scaleFactor = 1;
+                                      isdraweropen = false;
+                                    })
+                                  : setState(() {
+                                      x = 230;
+                                      y = 150;
+                                      scaleFactor = 0.6;
+                                      isdraweropen = true;
+                                    });
+                            },
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.info_outline,
+                              size: 40.0,
+                            ),
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> InfoScreen()));
+                              })
+                        ],
                       ),
                     ),
                     SizedBox(
@@ -183,369 +198,19 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.all(10.0),
                       child: Center(
                         child: Container(
-                          height: 120.0,
+                          height: 180.0,
                           decoration: BoxDecoration(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20.0)),
                               border: Border.all(color: Colors.black)),
-                          width: MediaQuery.of(context).size.width * 0.7,
+                          width: MediaQuery.of(context).size.width * 0.8,
                           child: IconButton(
                             icon: Icon(
                               Icons.add,
-                              size: 40.0,
+                              size: 50.0,
                             ),
                             onPressed: selectFromImagePicker,
                           ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 40.0,
-                    ),
-                    Center(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.90,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.horizontal(
-                              right: Radius.circular(_borderRadius)),
-                          gradient: LinearGradient(
-                              colors: [items[0].startColor, items[0].endColor],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight),
-                          boxShadow: [
-                            BoxShadow(
-                              color: items[0].endColor,
-                              blurRadius: 12,
-                              offset: Offset(0, 6),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                              child: Text(
-                                items[0].name,
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                              child: Text(
-                                items[0].description,
-                                style: TextStyle(
-                                  fontSize: 15.0,
-                                  fontFamily: 'Montserrat',
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    Center(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.90,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.horizontal(
-                              right: Radius.circular(_borderRadius)),
-                          gradient: LinearGradient(
-                              colors: [items[1].startColor, items[1].endColor],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight),
-                          boxShadow: [
-                            BoxShadow(
-                              color: items[1].endColor,
-                              blurRadius: 12,
-                              offset: Offset(0, 6),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                              child: Text(
-                                items[1].name,
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                              child: Text(
-                                items[1].description,
-                                style: TextStyle(
-                                  fontSize: 15.0,
-                                  fontFamily: 'Montserrat',
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    Center(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.90,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.horizontal(
-                              right: Radius.circular(_borderRadius)),
-                          gradient: LinearGradient(
-                              colors: [items[2].startColor, items[2].endColor],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight),
-                          boxShadow: [
-                            BoxShadow(
-                              color: items[2].endColor,
-                              blurRadius: 12,
-                              offset: Offset(0, 6),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                              child: Text(
-                                items[2].name,
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                              child: Text(
-                                items[2].description,
-                                style: TextStyle(
-                                  fontSize: 15.0,
-                                  fontFamily: 'Montserrat',
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    Center(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.90,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.horizontal(
-                              right: Radius.circular(_borderRadius)),
-                          gradient: LinearGradient(
-                              colors: [items[3].startColor, items[3].endColor],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight),
-                          boxShadow: [
-                            BoxShadow(
-                              color: items[3].endColor,
-                              blurRadius: 12,
-                              offset: Offset(0, 6),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                              child: Text(
-                                items[3].name,
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                              child: Text(
-                                items[3].description,
-                                style: TextStyle(
-                                  fontSize: 15.0,
-                                  fontFamily: 'Montserrat',
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    Center(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.90,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.horizontal(
-                              right: Radius.circular(_borderRadius)),
-                          gradient: LinearGradient(
-                              colors: [items[4].startColor, items[4].endColor],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight),
-                          boxShadow: [
-                            BoxShadow(
-                              color: items[4].endColor,
-                              blurRadius: 12,
-                              offset: Offset(0, 6),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                              child: Text(
-                                items[4].name,
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                              child: Text(
-                                items[4].description,
-                                style: TextStyle(
-                                  fontSize: 15.0,
-                                  fontFamily: 'Montserrat',
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    Center(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.90,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.horizontal(
-                              right: Radius.circular(_borderRadius)),
-                          gradient: LinearGradient(
-                              colors: [items[5].startColor, items[5].endColor],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight),
-                          boxShadow: [
-                            BoxShadow(
-                              color: items[5].endColor,
-                              blurRadius: 12,
-                              offset: Offset(0, 6),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                              child: Text(
-                                items[5].name,
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                              child: Text(
-                                items[5].description,
-                                style: TextStyle(
-                                  fontSize: 15.0,
-                                  fontFamily: 'Montserrat',
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    Center(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.90,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.horizontal(
-                              right: Radius.circular(_borderRadius)),
-                          gradient: LinearGradient(
-                              colors: [items[6].startColor, items[6].endColor],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight),
-                          boxShadow: [
-                            BoxShadow(
-                              color: items[6].endColor,
-                              blurRadius: 12,
-                              offset: Offset(0, 6),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                              child: Text(
-                                items[6].name,
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                              child: Text(
-                                items[6].description,
-                                style: TextStyle(
-                                  fontSize: 15.0,
-                                  fontFamily: 'Montserrat',
-                                ),
-                              ),
-                            ),
-                          ],
                         ),
                       ),
                     ),
