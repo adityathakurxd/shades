@@ -108,6 +108,12 @@ The TensorFlow model we prepared needed to be taken to the mobile devices, hence
 
 ![WhatsApp Image 2021-02-06 at 12 31 01 PM](https://user-images.githubusercontent.com/53579386/107112720-b020b180-687f-11eb-8f96-63b7fc9078a6.jpeg)
 
+# UI Updates
+
+![WhatsApp Image 2021-02-07 at 10 20 35 AM (1)](https://user-images.githubusercontent.com/53579386/107137006-3dbada80-692e-11eb-9d74-ccd47af30b19.jpeg)
+![WhatsApp Image 2021-02-07 at 10 20 35 AM](https://user-images.githubusercontent.com/53579386/107137007-3eec0780-692e-11eb-97b6-1b8edeb98061.jpeg)
+![WhatsApp Image 2021-02-07 at 10 20 35 AM (2)](https://user-images.githubusercontent.com/53579386/107137009-3f849e00-692e-11eb-9054-12c4f604487c.jpeg)
+
 **Whats next?** 
 
  - Updating UI
