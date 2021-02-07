@@ -16,12 +16,7 @@ Your Data-set should be trained to predict the relevant biological functioning o
 
 One of the **example** to demonstrate this is: Usually, Typhoid can cause a rash, which consists of small pink spots which are sometimes referred to as “rose spots”. Each spot tends to last around 3-5 days. You can detect those and prepare a report for the same.
 
-## Team Details 
 
-**Members:**
-
- - Aditya Thakur (Team Leader, Flutter Developer)
- 
 # Hack Progress
 We broke up the problem statement into task and tried to focus on one at a time namely:
 
