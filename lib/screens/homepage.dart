@@ -217,6 +217,112 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 40.0,
                     ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20.0, 2.0, 0.0,0.0),
+                      child: Text(
+                        'Having an issue?',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(21.0, 2.0, 0.0,0.0),
+                      child: Text(
+                        'Consult a skin specialist near you.',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                          fontFamily: 'Montserrat',
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 40.0,
+                    ),
+                    GestureDetector(
+                      child : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            width: 80,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: AssetImage('assets/images/lady.jpg'),
+                                  fit: BoxFit.fill
+                              ),
+                            ),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Dr. Sushma Paaji',
+                                style: TextStyle(
+                                  fontSize: 25.0,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.bold
+                                ),
+                              ),
+                              Text(
+                                'PHD, Mhd',
+                                style: TextStyle(
+                                    fontSize: 15.0,
+                                    fontFamily: 'Montserrat',
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                      onTap: (){
+
+                      },
+                    ),
+                    SizedBox(
+                      height: 40.0,
+                    ),
+                    GestureDetector(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            width: 80,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: AssetImage('assets/images/man.jpg'),
+                                  fit: BoxFit.fill
+                              ),
+                            ),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Dr. Paaji Sushma',
+                                style: TextStyle(
+                                    fontSize: 25.0,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.bold
+                                ),
+                              ),
+                              Text(
+                                'PHD, Mhd',
+                                style: TextStyle(
+                                  fontSize: 15.0,
+                                  fontFamily: 'Montserrat',
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),

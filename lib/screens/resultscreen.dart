@@ -6,7 +6,6 @@ import 'homepage.dart';
 import 'package:shades/diseasecure.dart';
 
 class ResultScreen extends StatelessWidget {
-
   var items = [
     DiseaseInfo("Bowen's disease", Color(0xff6DC8F3), Color(0xff73A1F9),
         "Bowen's disease is a very early form of skin cancer that's easily treatable. The main sign is a red, scaly patch on the skin."),
@@ -32,12 +31,11 @@ class ResultScreen extends StatelessWidget {
   String _label;
   DiseaseCure dc = DiseaseCure();
 
-
-
   String _confidence;
   File image;
 
-  ResultScreen(this._result, this._confidence, this._label, this.str, this.image);
+  ResultScreen(
+      this._result, this._confidence, this._label, this.str, this.image);
 
   @override
   Widget build(BuildContext context) {
@@ -52,23 +50,19 @@ class ResultScreen extends StatelessWidget {
             Center(
               child: Container(
                 height: 300,
-                width: MediaQuery.of(context).size.width*0.80,
-
+                width: MediaQuery.of(context).size.width * 0.80,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: FileImage(File(image.path)),
-                        fit: BoxFit.fill,),
-                    borderRadius:
-                    BorderRadius.all(Radius.circular(20.0)),
-                    border: Border.all(color: Colors.black)
-                ),
-                ),
+                      image: FileImage(File(image.path)),
+                      fit: BoxFit.fill,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    border: Border.all(color: Colors.black)),
               ),
-
+            ),
             SizedBox(
               height: 40.0,
             ),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -76,35 +70,37 @@ class ResultScreen extends StatelessWidget {
                   circularStrokeCap: CircularStrokeCap.round,
                   radius: 120.0,
                   lineWidth: 12.0,
-                  percent: _result[0]['confidence'] ,
-                  center: new Text('${_confidence}',
+                  percent: _result[0]['confidence'],
+                  center: new Text(
+                    '${_confidence}',
+                    style: TextStyle(
+                      fontSize: 25.0,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  progressColor: Colors.black,
+                ),
+                Text(
+                  '${dc.getDiseaseName(_label)}',
                   style: TextStyle(
                     fontSize: 25.0,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.bold,
-                  ),),
-                  progressColor: Colors.black,
+                  ),
                 ),
-                Text('${dc.getDiseaseName(_label)}',
-                style: TextStyle(
-                  fontSize: 25.0,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.bold,
-                ),),
               ],
             ),
-
             SizedBox(
               height: 30.0,
             ),
-
             Container(
               height: 200,
-              width: MediaQuery.of(context).size.width*0.80,
+              width: MediaQuery.of(context).size.width * 0.80,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(24)),
                 gradient: LinearGradient(
-                    colors: [skin1,skin2],
+                    colors: [skin1, skin2],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight),
                 boxShadow: [
@@ -116,6 +112,7 @@ class ResultScreen extends StatelessWidget {
                 ],
               ),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
                     height: 5.0,
@@ -130,8 +127,11 @@ class ResultScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.fromLTRB(20.0, 0.0, 10.0, 0.0),
                     child: Text(
                       items[dc.getDiseaseIndex(_label)].description,
                       style: TextStyle(
@@ -139,7 +139,14 @@ class ResultScreen extends StatelessWidget {
                         fontFamily: 'Montserrat',
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  RaisedButton(
+                    child: Text('Consult a Doctor'),
+                    onPressed: () {},
+                  ),
                 ],
               ),
             )
@@ -149,5 +156,3 @@ class ResultScreen extends StatelessWidget {
     );
   }
 }
-
-
