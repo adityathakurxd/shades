@@ -16,6 +16,8 @@ Your Data-set should be trained to predict the relevant biological functioning o
 
 One of the **example** to demonstrate this is: Usually, Typhoid can cause a rash, which consists of small pink spots which are sometimes referred to as “rose spots”. Each spot tends to last around 3-5 days. You can detect those and prepare a report for the same.
 
+![WhatsApp Image 2021-02-22 at 10 26 25 AM](https://user-images.githubusercontent.com/53579386/108664474-d89fe100-74f8-11eb-9b31-351a6193eb12.jpeg)
+
 
 # Hack Progress
 We broke up the problem statement into task and tried to focus on one at a time namely:
@@ -113,7 +115,3 @@ The TensorFlow model we prepared needed to be taken to the mobile devices, hence
 ![WhatsApp Image 2021-02-07 at 4 48 54 PM](https://user-images.githubusercontent.com/53579386/107155565-2536d880-699f-11eb-9b1b-35922a6c41b9.jpeg)
 
 
-**Whats next?** 
-
- - Updating UI
- - Adding info about labels
