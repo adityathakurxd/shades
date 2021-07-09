@@ -101,7 +101,14 @@ The TensorFlow model we prepared needed to be taken to the mobile devices, hence
 
 **Flutter App progress**
 
-![WhatsApp Image 2021-02-06 at 12 31 01 PM](https://user-images.githubusercontent.com/53579386/107112720-b020b180-687f-11eb-8f96-63b7fc9078a6.jpeg)
+<table>
+        <tr>
+          <td>
+            <img src="https://user-images.githubusercontent.com/53579386/107112720-b020b180-687f-11eb-8f96-63b7fc9078a6.jpeg" alt="">
+          </td>
+        </tr>
+</table>
+
 
 # UI Updates
 
