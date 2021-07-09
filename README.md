@@ -144,6 +144,16 @@ The TensorFlow model we prepared needed to be taken to the mobile devices, hence
 </table>
 <br>
 
+# Video Demos
+
+https://user-images.githubusercontent.com/53579386/125111690-d59e3980-e103-11eb-87f4-f12162d1e5a5.mp4
+
+https://user-images.githubusercontent.com/53579386/125111725-df27a180-e103-11eb-90bb-02458853980f.mp4
+
+https://user-images.githubusercontent.com/53579386/125111711-dc2cb100-e103-11eb-8652-8ed76e2eeaff.mp4
+
+<br>
+
 # We won :)
 
 ![Hackathon](https://user-images.githubusercontent.com/53579386/115972809-3dfe6580-a56e-11eb-9970-fb109e1b511d.png)
