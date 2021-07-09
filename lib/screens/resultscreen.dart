@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:shades/constants.dart';
+import 'package:shades/videocall/call.dart';
 import 'dart:io';
 import 'homepage.dart';
 import 'package:shades/diseasecure.dart';
@@ -145,7 +146,9 @@ class ResultScreen extends StatelessWidget {
                   ),
                   RaisedButton(
                     child: Text('Consult a Doctor'),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> CallScreen()));
+                    },
                   ),
                 ],
               ),
