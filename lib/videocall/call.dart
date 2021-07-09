@@ -59,7 +59,7 @@ class _CallScreenState extends State<CallScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Video Call in Flutter'),
+        title: Text('Video Consultation'),
       ),
       body: Stack(
         children: [
@@ -91,7 +91,7 @@ class _CallScreenState extends State<CallScreen> {
     }
     else {
       return Text(
-        'User will appear here!',
+        'Doctor will appear here!',
         textAlign: TextAlign.center,
       );
     }
